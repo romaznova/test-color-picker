@@ -42,7 +42,7 @@
     &::after {
       content: '';
       display: block;
-      border-top: 0.7rem solid #000;
+      border-top: 0.7rem solid $default-color;
       border-left: 0.6rem solid transparent;
       border-right: 0.6rem solid transparent;
       position: absolute;

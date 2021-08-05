@@ -30,20 +30,6 @@ export const hexToRgb = (color: string) => {
   };
 };
 
-// export const useRGB = (initialColor: string) => {
-//   const rgb = hexToRgb(initialColor);
-//   const [rgbColor, dispatch] = React.useReducer(reducer, rgb);
-//   const hexColor = rgbToHex(rgbColor.r, rgbColor.g, rgbColor.b);
-//   return {
-//       rgbColor,
-//       hexColor: initial,
-//       setR: (payload: number) => dispatch({ type: R, payload }),
-//       setG: (payload: number) => dispatch({ type: G, payload }),
-//       setB: (payload: number) => dispatch({ type: B, payload }),
-//       setAll: (payload: string) => dispatch({ type: ALL, payload: hexToRgb(payload) })
-//   }
-// }
-
 export const normalizeHex = (hex: string) => {
   if (/^#[0-9A-F]{6}$/i.test(hex) || /^#([0-9A-F]{3}){1,2}$/i.test(hex)) {
     return hex.replace('#', '');

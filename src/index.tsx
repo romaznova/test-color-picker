@@ -11,7 +11,7 @@ const colors = [
     { color: '0000ff', title: 'blue' },
 ];
 
-const defaultValue = '#ff0'
+const defaultValue = '#ffff00'
 const handleChange = (e: string) => console.log('onChange callback ====>', e);
 
 ReactDOM.render((
