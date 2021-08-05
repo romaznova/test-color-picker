@@ -61,7 +61,7 @@ export const RGBPicker = () => {
 
     return (
         <div className="c-rgb-picker" ref={refEl}>
-            <div onClick={() => setIsOpen(!isOpen)}>
+            <div className="c-rgb-picker__placeholder" onClick={() => setIsOpen(!isOpen)}>
                 <ColorBox color={hexColor} />
             </div>
             {isOpen && (
@@ -79,8 +79,10 @@ export const RGBPicker = () => {
                         <input type="range" min="0" max="255" name={B} value={rgbColor.b} onChange={handleChange} />
                     </div>
 
-                    <button onClick={() => setIsOpen(false)}>Cancel</button>
-                    <button onClick={handleSubmit}>Save</button>
+                    <div className="c-rgb-picker__buttons">
+                        <button className="cancel" onClick={() => setIsOpen(false)}>Cancel</button>
+                        <button className="success" onClick={handleSubmit}>Save</button>
+                    </div>
                 </div>
             )}
         </div>

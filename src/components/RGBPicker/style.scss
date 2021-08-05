@@ -1,4 +1,8 @@
 .c-rgb-picker {
+  &__placeholder {
+    cursor: pointer;
+  }
+
   &__inner {
     position: absolute;
     top: 100%;
@@ -14,6 +18,24 @@
   &__item {
     display: flex;
     align-items: center;
+  }
+
+  &__buttons {
+    display: flex;
+
+    button {
+      margin: 1rem 0.5rem;
+      font-size: 1rem;
+      border: none;
+
+      &.success {
+        background-color: $success-color;
+      }
+
+      &.cancel {
+        background-color: $error-color;
+      }
+    }
   }
 
   input {
