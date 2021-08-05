@@ -1,0 +1,12 @@
+.c-hex-viewer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  width: auto;
+  padding: 0 1rem;
+  border: 0.1rem solid $border-color;
+  border-radius: $border-radius;
+  letter-spacing: 0.1rem;
+  width: 7rem;
+}

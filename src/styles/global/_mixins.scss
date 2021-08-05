@@ -1,0 +1,9 @@
+@mixin range-input($prop, $value) {
+  &::-webkit-slider-runnable-track {
+    #{$prop}: $value;
+  }
+
+  &::-moz-range-track {
+    #{$prop}: $value;
+  }
+}

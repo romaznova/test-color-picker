@@ -1,0 +1,11 @@
+.c-color-picker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4rem auto;
+  padding: 1rem;
+  border: 0.1rem solid $border-color;
+  border-radius: $border-radius;
+  width: fit-content;
+  position: relative;
+}

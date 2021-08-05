@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "jsx": "react",
+        "noEmitOnError": true,
+        "noUnusedLocals": true,
+        "removeComments": true,
+        "noImplicitAny": true,
+        "esModuleInterop": true,
+        "baseUrl": ".",
+        "paths": { 
+            "@components": ["src/components"],
+            "@context": ["src/context"],
+            "@containers": ["src/containers"],
+            "@interfaces": ["src/interfaces"],
+            "@actions": ["src/actions"],
+            "@helpers": ["src/helpers"],
+            "@reducers": ["src/reducers"]
+        }
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
