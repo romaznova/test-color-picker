@@ -2,10 +2,9 @@ import React, { useReducer } from 'react';
 import { PickerContext } from '@context';
 import { IDropdownItem } from '@interfaces';
 import { RGBPicker, ColorsList } from '@components';
-import { HEXViewer } from '@containers';
+import { HEXViewer, ColorPickerViewer } from '@containers';
 import { normalizeHex } from '@helpers';
 import { colorPickerReducer } from '@reducers';
-import './style.scss';
 
 interface IProps {
     value: string;
@@ -19,13 +18,15 @@ export const ColorPicker = ({ value: defaultValue, colors, onChange }: IProps) =
 
     return (
         <PickerContext.Provider value={[state, dispatch, onChange]}>
-            <div className="c-color-picker">
-                <HEXViewer color={state.value} />
-                &nbsp;|&nbsp;
-                <RGBPicker />
-                &nbsp;|&nbsp;
-                <ColorsList />
-            </div>
+            <ColorPickerViewer>
+                <>
+                    <HEXViewer color={state.value} />
+                    &nbsp;|&nbsp;
+                    <RGBPicker />
+                    &nbsp;|&nbsp;
+                    <ColorsList />
+                </>
+            </ColorPickerViewer>
         </PickerContext.Provider>
     )
 }
