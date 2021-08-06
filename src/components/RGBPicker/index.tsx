@@ -1,10 +1,9 @@
 import React, { useRef, useState, useCallback } from 'react';
 import { usePickerContext } from '@context';
 import { useOutsideClick, hexToRgb, rgbToHex } from '@helpers';
-import { ColorBox } from '@containers';
+import { RGBPickerViewer } from '@containers';
 import { rgbPickerReducer } from '@reducers';
 import { R, G, B, ALL } from '@actions';
-import './style.scss';
 
 const useRGB = (initialColor: string) => {
     const rgb = hexToRgb(initialColor);
@@ -25,7 +24,7 @@ export const RGBPicker = () => {
     const refEl = useRef(null);
     const { rgbColor, hexColor, setR, setG, setB, setAll } = useRGB(state.value);
     const [isOpen, setIsOpen] = useState(false);
-    const hangleClose = useCallback(() => {
+    const handleOutsideClick = useCallback(() => {
         if (!isOpen) {
             return
         }
@@ -34,7 +33,9 @@ export const RGBPicker = () => {
         setAll(state.value);
     }, [refEl, isOpen]);
 
-    useOutsideClick(refEl, hangleClose);
+    useOutsideClick(refEl, handleOutsideClick);
+
+    const toggleIsOpen = () => setIsOpen(!isOpen);
 
     const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
         const { name: inputName, value } = e.currentTarget;
@@ -60,31 +61,14 @@ export const RGBPicker = () => {
     }, [state.value, isOpen]);
 
     return (
-        <div className="c-rgb-picker" ref={refEl}>
-            <div className="c-rgb-picker__placeholder" onClick={() => setIsOpen(!isOpen)}>
-                <ColorBox color={hexColor} />
-            </div>
-            {isOpen && (
-                <div className="c-rgb-picker__inner">
-                    <div className="c-rgb-picker__item">
-                        R
-                        <input type="range" min="0" max="255" name={R} value={rgbColor.r} onChange={handleChange} />
-                    </div>
-                    <div className="c-rgb-picker__item">
-                        G
-                        <input type="range" min="0" max="255" name={G} value={rgbColor.g} onChange={handleChange} />
-                    </div>
-                    <div className="c-rgb-picker__item">
-                        B
-                        <input type="range" min="0" max="255" name={B} value={rgbColor.b} onChange={handleChange} />
-                    </div>
-
-                    <div className="c-rgb-picker__buttons">
-                        <button className="cancel" onClick={() => setIsOpen(false)}>Cancel</button>
-                        <button className="success" onClick={handleSubmit}>Save</button>
-                    </div>
-                </div>
-            )}
-        </div>
+        <RGBPickerViewer
+            refEl={refEl}
+            isOpen={isOpen}
+            toggleIsOpen={toggleIsOpen}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            rgbColor={rgbColor}
+            hexColor={hexColor}
+        />
     )
 }

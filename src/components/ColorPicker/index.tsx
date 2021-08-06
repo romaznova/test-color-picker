@@ -1,7 +1,8 @@
 import React, { useReducer } from 'react';
 import { PickerContext } from '@context';
 import { IDropdownItem } from '@interfaces';
-import { HEXViewer, RGBPicker, Dropdown } from '@components';
+import { RGBPicker, ColorsList } from '@components';
+import { HEXViewer } from '@containers';
 import { normalizeHex } from '@helpers';
 import { colorPickerReducer } from '@reducers';
 import './style.scss';
@@ -19,11 +20,11 @@ export const ColorPicker = ({ value: defaultValue, colors, onChange }: IProps) =
     return (
         <PickerContext.Provider value={[state, dispatch, onChange]}>
             <div className="c-color-picker">
-                <HEXViewer />
+                <HEXViewer color={state.value} />
                 &nbsp;|&nbsp;
                 <RGBPicker />
                 &nbsp;|&nbsp;
-                <Dropdown />
+                <ColorsList />
             </div>
         </PickerContext.Provider>
     )

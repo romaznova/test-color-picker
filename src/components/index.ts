@@ -1,4 +1,3 @@
 export * from './RGBPicker';
-export * from './Dropdown';
-export * from './HEXViewer';
+export * from './ColorsList';
 export * from './ColorPicker';
