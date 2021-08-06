@@ -13,7 +13,7 @@ interface IProps {
 }
 
 export const ColorPicker = ({ value: defaultValue, colors, onChange }: IProps) => {
-    const normalizedValue = normalizeHex(defaultValue)
+    const normalizedValue = normalizeHex(defaultValue);
     const [state, dispatch] = useReducer(colorPickerReducer, { colors, value: normalizedValue });
 
     return (

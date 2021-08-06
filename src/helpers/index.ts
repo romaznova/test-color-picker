@@ -11,7 +11,7 @@ export const numberToHex = (number: number) => {
 };
 
 export const rgbToHex = (r: number, g: number, b: number) =>
-  `${numberToHex(r)}${numberToHex(g)}${numberToHex(b)}`;
+  `#${numberToHex(r)}${numberToHex(g)}${numberToHex(b)}`;
 
 export const hexToRgb = (color: string) => {
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
@@ -32,10 +32,10 @@ export const hexToRgb = (color: string) => {
 
 export const normalizeHex = (hex: string) => {
   if (/^#[0-9A-F]{6}$/i.test(hex) || /^#([0-9A-F]{3}){1,2}$/i.test(hex)) {
-    return hex.replace('#', '');
+    return hex;
   }
 
-  return 'ffffff';
+  return '#ffffff';
 };
 
 export const useOutsideClick = (

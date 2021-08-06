@@ -9,7 +9,7 @@ export const usePickerContext = () => {
     state,
     setColor: (payload: string) => {
       dispatch({ type: SET_COLOR, payload });
-      callback(`#${payload}`);
+      callback(payload);
     },
   };
 };

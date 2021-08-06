@@ -6,7 +6,7 @@ export const HEXViewer = () => {
     const { state } = usePickerContext();
     return (
         <div className="c-hex-viewer">
-            #{state.value}
+            {state.value}
         </div>
     )
 }

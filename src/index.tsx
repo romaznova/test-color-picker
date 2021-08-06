@@ -5,10 +5,10 @@ import { ColorPicker } from '@components';
 const rootTarget = document.getElementById('root');
 
 const colors = [
-    { color: 'ffff00', title: 'yellow' },
-    { color: 'ff0000', title: 'red' },
-    { color: '00ff00', title: 'green' },
-    { color: '0000ff', title: 'blue' },
+    { color: '#ffff00', title: 'yellow' },
+    { color: '#ff0000', title: 'red' },
+    { color: '#00ff00', title: 'green' },
+    { color: '#0000ff', title: 'blue' },
 ];
 
 const defaultValue = '#ffff00'
